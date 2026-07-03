@@ -61,9 +61,33 @@ const outline = new THREE.LineSegments(edgeGeometry, outlineMaterial);
 outline.computeLineDistances();
 scene.add(outline);
 
+//- Spheres
+const sphereGeometry = new THREE.SphereGeometry(0.5, 16, 16);
+
+for (let i = 0; i < 100; i++) {
+  const sphereMaterial = new THREE.MeshBasicMaterial();
+  const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+  
+  sphere.position.set(
+    (boxLength / 2) + (Math.random() - 0.5) * boxLength,
+    (boxLength / 2) + (Math.random() - 0.5) * boxLength,
+    (boxLength / 2) + (Math.random() - 0.5) * boxLength
+  );
+
+  const x = sphere.position.x / boxLength;
+  const y = sphere.position.y / boxLength;
+  const z = sphere.position.z / boxLength;
+
+  const hue = x;
+  const saturation = 0.6 + z * 0.4;
+  const light = 0.4 + y * 0.4;
+
+  sphereMaterial.color.setHSL(hue, saturation, light);
+
+  scene.add(sphere);
+}
 
 await renderer.init();
-
 
 renderer.render(scene, camera);
 const controls = new OrbitControls(camera, renderer.domElement);
