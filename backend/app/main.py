@@ -20,7 +20,7 @@ async def lifespan(app: FastAPI):
 
 settings = get_settings()
 
-app = FastAPI(title="Unified SWCPQ API", version="0.2.0", lifespan=lifespan)
+app = FastAPI(title="Psygraph API", version="0.2.0", lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
