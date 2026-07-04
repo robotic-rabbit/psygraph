@@ -19,8 +19,8 @@ source venv/bin/activate
 and then
 
 ```bash
-pip install -r requirements
-uvicorn main:app --r
+pip install -e .
+fastapi dev
 ```
 
 then open
