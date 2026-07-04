@@ -10,5 +10,5 @@ class SliderAnswer(BaseModel):
 
 # we might want to change this later but for now this works
 class UserSubmission(BaseModel):
-    user_id: Optional[int] = None
+    user_id: str
     answers: List[SliderAnswer]
