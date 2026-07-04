@@ -1,7 +1,19 @@
-from fastapi import FastAPI
-from schemas import UserSubmission
+from contextlib import asynccontextmanager
 
-app = FastAPI()
+from fastapi import FastAPI
+from sqlmodel import SQLModel
+
+from .db import engine
+from .schemas import UserSubmission
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    SQLModel.metadata.create_all(engine)
+    yield
+
+
+app = FastAPI(lifespan=lifespan)
 
 
 @app.get("/")

@@ -25,3 +25,6 @@ uvicorn main:app --r
 
 then open
 http://localhost:8000/docs to see api documentation
+
+Credits:
+Data: Open-Source Psychometrics Project — Statistical ‘Which Character’ Personality Quiz (CC BY‑NC‑SA 4.0).
