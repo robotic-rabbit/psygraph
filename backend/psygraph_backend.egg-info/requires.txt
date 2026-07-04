@@ -1,5 +1,5 @@
-fastapi>=0.115
-uvicorn[standard]>=0.34
+fastapi[standard]>=0.115
+uvicorn>=0.34
 pydantic>=2.0
 pydantic-settings>=2.0
 sqlalchemy[asyncio]>=2.0
