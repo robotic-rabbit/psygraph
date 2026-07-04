@@ -12,7 +12,7 @@ from app.services.scoring import ScoringService
 router = APIRouter(prefix="/quiz", tags=["quiz"])
 
 _VERSION_LABELS = {
-    "quick": "Quick (14)",
+    "quick": "Quick (4)",
     "recommended": "Recommended (36)",
     "long": "Long (100)",
 }

@@ -3,18 +3,17 @@ from pathlib import Path
 
 from pydantic_settings import BaseSettings
 
-# Find the backend folder automatically
+# NOTE: Some weird thing idk why it has to be like this please fix if reading this in the future
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 class Settings(BaseSettings):
-    # Pure, clean file path. No slashes to count.
     DATABASE_PATH: Path = BASE_DIR / "data" / "psygraph.db"
 
     QUIZ_VERSIONS: dict[str, list[int]] = {
-        "quick": [],
-        "recommended": [],
-        "long": [],
+        "quick": list(range(1, 5)),  # Questions 1 to 4
+        "recommended": list(range(1, 37)),
+        "long": list(range(1, 101)),
     }
     CORS_ORIGINS: list[str] = ["http://localhost:3000"]
     model_config = {"env_file": ".env"}
