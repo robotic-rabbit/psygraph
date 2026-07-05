@@ -64,7 +64,7 @@ scene.add(outline);
 //- Spheres
 const sphereGeometry = new THREE.SphereGeometry(0.5, 16, 16);
 
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i < 2125; i++) {
   const sphereMaterial = new THREE.MeshBasicMaterial();
   const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
   
@@ -80,7 +80,7 @@ for (let i = 0; i < 100; i++) {
 
   const hue = x;
   const saturation = 0.6 + z * 0.4;
-  const light = 0.4 + y * 0.4;
+  const light = 0.3 + y * 0.4;
 
   sphereMaterial.color.setHSL(hue, saturation, light);
 
