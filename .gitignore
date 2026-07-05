@@ -4,3 +4,5 @@ __pycache__/
 raw_data/
 *.db
 venv/
+.vscode
+node_modules
