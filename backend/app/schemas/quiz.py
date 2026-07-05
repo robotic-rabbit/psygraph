@@ -7,15 +7,15 @@ class VersionOut(BaseModel):
     size: int
 
 
-class ItemOut(BaseModel):
+class QuestionOut(BaseModel):
     id: int
     pole_left: str
     pole_right: str
 
 
-class QuestionsResponse(BaseModel):
+class QuizResponse(BaseModel):
     version: str
-    items: list[ItemOut]
+    items: list[QuestionOut]
 
 
 class AnswerIn(BaseModel):
@@ -24,9 +24,18 @@ class AnswerIn(BaseModel):
     value: int = Field(..., ge=1, le=100)
 
 
-class ScoreRequest(BaseModel):  # im not sure if we want to do it this way
+class QuizSubmit(BaseModel):  # im not sure if we want to do it this way
     version: str
     answers: list[AnswerIn] = Field(..., min_length=1)
+
+
+# TODO: refactor entity and add coordinates maybe or maybe have that as a seperate schema? idk
+class Entity(BaseModel):
+    entity_id: int
+    name: str
+    entity_type: str
+    universe: str | None = None
+    image_url: str | None = None
 
 
 class EntityMatch(BaseModel):

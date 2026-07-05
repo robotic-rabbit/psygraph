@@ -10,6 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 class Settings(BaseSettings):
     DATABASE_PATH: Path = BASE_DIR / "data" / "psygraph.db"
 
+    # TODO: move this to somewhere else later
     QUIZ_VERSIONS: dict[str, list[int]] = {
         "quick": list(range(1, 5)),  # Questions 1 to 4
         "recommended": list(range(1, 37)),
@@ -22,6 +23,6 @@ class Settings(BaseSettings):
 settings = Settings()
 
 
-@lru_cache
+@lru_cache  # not sure if this improves performance
 def get_settings():
     return Settings()

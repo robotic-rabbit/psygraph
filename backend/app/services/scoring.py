@@ -1,4 +1,4 @@
-# NOTE: Just some AI Slop for now replicating the original
+# TODO: replace this rn its Just some AI Slop replicating the original
 import numpy as np
 import pandas as pd
 from sqlalchemy import text

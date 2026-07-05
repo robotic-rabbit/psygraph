@@ -11,7 +11,7 @@ from app.dependencies import get_scoring_service
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    await init_db()
+    await init_db()  # should change this later  i thinkg
     scoring_svc = get_scoring_service()
     async with AsyncSessionLocal() as db:
         await scoring_svc.load_matrix(db)

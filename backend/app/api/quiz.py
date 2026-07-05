@@ -27,7 +27,7 @@ def list_versions():
     ]
 
 
-@router.get("/questions", response_model=QuestionsResponse)
+@router.get("/questions", response_model=QuizResponse)
 async def get_questions(version: str, db: AsyncSession = Depends(get_db)):
     settings = get_settings()
     if version not in settings.QUIZ_VERSIONS:
@@ -35,15 +35,15 @@ async def get_questions(version: str, db: AsyncSession = Depends(get_db)):
 
     q_ids = settings.QUIZ_VERSIONS[version]
     if not q_ids:
-        return QuestionsResponse(version=version, items=[])
+        return QuizResponse(version=version, items=[])
 
     result = await db.execute(select(Question).where(Question.id.in_(q_ids)))
     items = result.scalars().all()
 
-    return QuestionsResponse(
+    return QuizResponse(
         version=version,
         items=[
-            ItemOut(id=q.id, pole_left=q.pole_left, pole_right=q.pole_right)
+            QuestionOut(id=q.id, pole_left=q.pole_left, pole_right=q.pole_right)
             for q in items
         ],
     )
@@ -51,7 +51,7 @@ async def get_questions(version: str, db: AsyncSession = Depends(get_db)):
 
 @router.post("/score", response_model=ScoreResponse)
 async def score_quiz(
-    req: ScoreRequest, scoring: ScoringService = Depends(get_scoring_service)
+    req: QuizSubmit, scoring: ScoringService = Depends(get_scoring_service)
 ):
     settings = get_settings()
     if req.version not in settings.QUIZ_VERSIONS:

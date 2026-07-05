@@ -13,4 +13,4 @@ class Entity(Base):
     image_url = Column(String, nullable=True)  # default NULL for users
     is_aggregated = Column(
         Boolean, default=False
-    )  # True for characters (averaged data)
+    )  # True for characters (averaged data) # TODO: replace this
