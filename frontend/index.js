@@ -28,7 +28,6 @@ function initializeParticleField(canvas) {
   const ctx = canvas.getContext("2d");
   let w, h, particles;
   let rafId = null;
-  let pulsePhase = 0;
 
   function resize() {
     const rect = canvas.getBoundingClientRect();
