@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Psygraph</title>
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -13,12 +13,19 @@
   <div class="container">
     <nav>
       <h1>Psygraph</h1>
-      <a href="pages/questions.html">Test Now</a>
-      <a href="pages/3d.html">3D Graph</a>
+      <a href="pages/questions.html" class="mainBtn">Find your coordinates</a>
+      <a href="pages/3d.html" class="subBtn">Explore the map</a>
     </nav>
   </div>
 </header>
 <hr class="nav-divider">
-  
+
+<canvas id="dotField"></canvas>
+
+<h1 class="headline">A crowdsourced atlas of <span class="highlight">human behavior</span></h1>
+<h1 class="subline">Define the dimensions. Map the results. Find your coordinates.</h1>
+
+<script src="index.js"></script>
+
 </body>
 </html>
