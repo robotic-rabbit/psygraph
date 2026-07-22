@@ -200,11 +200,129 @@ nav h1 {
   animation-delay: 1.4s;
 }
 
+.quizLabel, .startBtn {
+  opacity: 0;
+  filter: blur(8px);
+  animation: fadeInLeft 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.quizSelect {
+  opacity: 0;
+  filter: blur(8px);
+  animation: fadeInRight 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.quizContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.quizLabel {
+  display: block;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.25;
+  color: #695dd4;
+  text-align: center;
+  margin-top: 10vh;
+  margin-bottom: 16px;
+
+  animation-delay: 1.7s;
+}
+
+.quizSelect {
+  width: 13.5%;
+  padding: 10px;
+  font-size: 16px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #2e2a47;
+  border: 2px solid #5a5285;
+  cursor: pointer;
+  margin-bottom: 24px;
+  outline: none;
+  text-align: center;
+  color: #fff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  animation-delay: 1.8s;
+}
+
+.quizSelect:hover {
+  background-color: #3b355c;
+  border-color: #7b71ad;
+}
+
+.quizSelect:focus {
+  border-color: #b5b1d6;
+  box-shadow: 0 0 8px rgba(181, 177, 214, 0.4);
+}
+
+.startBtn {
+  width: 12%;
+  padding: 14px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-transform: uppercase;
+  color: #1e1b30;
+  background-color: #b5b1d6;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+
+  animation-delay: 1.9s;
+}
+
+.startBtn:hover {
+  background-color: #e3dfff;
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgba(181, 177, 214, 0.5);
+}
+
+.startBtn:active {
+  transform: scale(0.98);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.05s ease, box-shadow 0.05s ease;
+}
+
 @keyframes fadeUp {
   to {
     opacity: 1;
     transform: translateY(0);
     filter: blur(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    filter: blur(12px);
+    transform: translateX(-7.5vw);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    filter: blur(12px);
+    transform: translateX(7.5vw);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
   }
 }
 
