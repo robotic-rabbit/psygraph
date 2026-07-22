@@ -1,6 +1,6 @@
 const particleConfig = {
   particleCount: 24,
-  maxSpeed: 0.15,
+  maxSpeed: 0.2,
   particlesPerArea: 1 / 6500,
   minParticles: 14,
   maxParticles: 70,
@@ -15,11 +15,12 @@ const particleConfig = {
 
 function createParticle(w, h) {
   const angle = Math.random() * Math.PI * 2;
+  rawSpeed = Math.max(0.1, Math.random() * particleConfig.maxSpeed);
   return {
     x: Math.random() * w,
     y: Math.random() * h,
-    vx: Math.cos(angle) * particleConfig.maxSpeed,
-    vy: Math.sin(angle) * particleConfig.maxSpeed,
+    vx: Math.cos(angle) * rawSpeed,
+    vy: Math.sin(angle) * rawSpeed,
     color: Math.random() < 0.5 ? particleConfig.CrowdA : particleConfig.CrowdB
   };
 }
